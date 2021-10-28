@@ -1,0 +1,28 @@
+
+.leader-table {
+  width: 300px;
+}
+
+a.player_link {
+  color: white;
+  font-weight: bold;
+}
+
+.main-content {
+  background-color: #89909F;
+  height: 100%;
+  padding: 20px;
+}
+
+.leader-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.leader-table h2 {
+  text-align: center;
+  font-size: 30px;
+  color: black;
+}

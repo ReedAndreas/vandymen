@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="{% static 'player_detail.css' %}">
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="main-content">
+    <div class="stats-table">
+    <table class="table table-striped table-dark table-hover">
+      <thead>
+        <tr>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col">GP</th>
+        <th scope="col">AB</th>
+        <th scope="col">H</th>
+        <th scope="col">2B</th>
+        <th scope="col">3B</th>
+        <th scope="col">HR</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row"></th>
+        <td>{{ object.name }}</td>
+        <td>{{ object.gp }}</td>
+        <td>{{ object.ab }}</td>
+        <td>{{ object.h }}</td>
+        <td>{{ object.db }}</td>
+        <td>{{ object.tr }}</td>
+        <td>{{ object.hr }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+  <div class="stats-table">
+  <table class="table table-striped table-dark table-hover">
+    <thead>
+      <tr>
+  <th scope="col">RBI</th>
+  <th scope="col">K</th>
+  <th scope="col">BB</th>
+  <th scope="col">BA</th>
+  <th scope="col">OBP</th>
+  <th scope="col">SP</th>
+  <th scope="col">OPS</th>
+</tr>
+</thead>
+<tbody>
+  <tr>
+  <td>{{ object.rbi }}</td>
+  <td>{{ object.k }}</td>
+  <td>{{ object.bb }}</td>
+  <td>{{ object.ba }}</td>
+  <td>{{ object.obp }}</td>
+  <td>{{ object.sp }}</td>
+  <td>{{ object.ops }}</td>
+</tr>
+</tbody>
+</table>
+  </div>
+  </body>
+  {% endblock %}
+</html>

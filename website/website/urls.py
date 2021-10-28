@@ -15,7 +15,22 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import include
+from statsApp import views
+from statsApp.models import Player, Team
+from statsApp.views import PlayerListView, PlayerDetailView, TeamsListView, TeamDetailView
+
+team_players_dict = {str(t.pk): [] for t in Team.objects.all()}
+for t in Team.objects.all():
+    for p in Player.objects.filter(team=t.pk):
+        team_players_dict[str(t.pk)].append(p)
+
 
 urlpatterns = [
+    path('', views.landing, name = 'landing'),
+    path('players/', PlayerListView.as_view(extra_context={'players_page': 'active'})),
+    path('teams/', TeamsListView.as_view(extra_context={'teams_page': 'active'})),
     path('admin/', admin.site.urls),
+    path('players/<int:pk>/', PlayerDetailView.as_view(extra_context={'players_page': 'active'}), name='player-detail'),
+    path('teams/<int:pk>/', TeamDetailView.as_view(extra_context={'teams_page': 'active', 'players': team_players_dict}), name='team-detail'),
 ]

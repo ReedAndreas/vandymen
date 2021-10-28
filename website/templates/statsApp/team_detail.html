@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load extras %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="{% static 'team_detail.css' %}">
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+  <div class="tables">
+    <div class="player-table">
+      <br>
+      <h2>Players</h2>
+      <table class="table table-dark table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">BA</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for p in players %}
+          <tr>
+            <td><a href='/players/{{ p.pk }}'>{{ p.name }}</a></td>
+            <td>{{ p.ba }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="team-table">
+      <br>
+      <h2>Record</h2>
+      <table class="table table-dark table-hover">
+        <thead>
+          <tr>
+            <th scope="col">GP</th>
+            <th scope="col">W</th>
+            <th scope="col">L</th>
+            <th scope="col">WP</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ object.gp }}</td>
+            <td>{{ object.wins }}</td>
+            <td>{{ object.losses }}</td>
+            <td>{% get_wp object.wins object.losses %}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+{% endblock %}
+</html>

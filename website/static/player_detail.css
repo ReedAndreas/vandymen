@@ -1,0 +1,9 @@
+.main-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.stats-table {
+  width: 700px;
+}
