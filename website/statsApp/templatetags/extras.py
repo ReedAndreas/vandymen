@@ -17,7 +17,14 @@ def get_team_members(pk):
     return list(Player.objects.filter(team = pk))
 
 @register.simple_tag
+def team_name(val):
+    return Team.objects.get(pk=val).name
+
+@register.simple_tag
 def get_wp(w, l):
+    if w == '':
+        return ''
+
     if w + l == 0:
         return '0.000'
     elif l == 0:

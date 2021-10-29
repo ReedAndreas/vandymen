@@ -1,0 +1,28 @@
+.tables {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.player-table {
+  width: 540px;
+  text-align: center;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.team-table {
+  width: 540px;
+  text-align: center;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+a {
+  color: white;
+}
+
+a:hover {
+  color: white;
+}

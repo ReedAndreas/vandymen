@@ -35,8 +35,11 @@ team_data = []
 for index, row in df.iterrows():
     if row['NL'] in teams:
         team_data.append({'name': row['NL'], 'W': float(row['W1']), 'L': float(row['L1']), 'division': 'NL', 'gp': float(row['L1']) + float(row['W1'])})
+        print(row['NL'])
+
     if row['AL'] in teams:
         team_data.append({'name': row['AL'], 'W': float(row['W2']), 'L': float(row['L2']), 'division': 'AL', 'gp': float(row['L2']) + float(row['W2'])})
+        print(row['AL'])
 
 stats = stats.rename(columns={'Unnamed: 0': 'name'})
 

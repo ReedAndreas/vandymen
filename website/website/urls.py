@@ -31,6 +31,8 @@ urlpatterns = [
     path('players/', PlayerListView.as_view(extra_context={'players_page': 'active'})),
     path('teams/', TeamsListView.as_view(extra_context={'teams_page': 'active'})),
     path('admin/', admin.site.urls),
+    path('standings/', views.standings, name = 'standings'),
+    path('mock_draft/', views.mock_draft, name = 'mock_draft'),
     path('players/<int:pk>/', PlayerDetailView.as_view(extra_context={'players_page': 'active'}), name='player-detail'),
     path('teams/<int:pk>/', TeamDetailView.as_view(extra_context={'teams_page': 'active', 'players': team_players_dict}), name='team-detail'),
 ]
