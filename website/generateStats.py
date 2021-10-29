@@ -26,6 +26,10 @@ Wiffle House
 Wiffle Women, The'''
 teams = teams.split('\n')
 
+abvs = 'BS CAC DAD FB GB HP HH K R SSM SAL SSL WH WW'.split()
+
+abvs_dict = {a[0]:a[1] for a in list(zip(teams, abvs))}
+
 df = pd.read_csv('data/vandymen_teams.csv')
 
 df.columns = ['Division', 'NL', 'W1', 'L1', 'WP', 'nothing' , 'Division2', 'AL', 'W2', 'L2', 'WP2']
@@ -170,7 +174,7 @@ for t, y in teamKeys.items():
 from statsApp.models import Player, Team
 print('generating')
 for t in team_data:
-    Team.objects.get_or_create(name = t['name'], wins = t['W'], losses = t['L'], division = t['division'], gp = t['gp'])
+    Team.objects.get_or_create(name = t['name'], wins = t['W'], losses = t['L'], division = t['division'], gp = t['gp'], abv = abvs_dict[t['name']])
 
 for index, row in stats.iterrows():
     Player.objects.get_or_create(name = row['name'], gp = row['GP'], ab = row['AB'], h = row['H'], db = row['2B'], tr = row['3B'],

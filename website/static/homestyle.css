@@ -8,9 +8,8 @@ a.player_link {
   font-weight: bold;
 }
 
-.main-content {
+#main-content {
   background-color: #89909F;
-  height: 100%;
   padding: 20px;
 }
 
@@ -25,4 +24,57 @@ a.player_link {
   text-align: center;
   font-size: 30px;
   color: black;
+}
+
+.Home {
+  width: auto ;
+  max-width: 100% ;
+  height: auto;
+}
+
+@keyframes fadeIn {
+  0%   {opacity: 0%}
+  10%   {opacity: 10%}
+  20%  {opacity: 20%}
+  30%   {opacity: 30%}
+  40%  {opacity: 40%}
+  50%   {opacity: 50%}
+  60%  {opacity: 60%}
+  70%   {opacity: 70%}
+  80%  {opacity: 80%}
+  90%   {opacity: 90%}
+  100% {opacity: 100%}
+}
+
+@keyframes bounce {
+  0% {top: 10%}
+  10% {top: 11.5%}
+  20% {top: 13%}
+  30% {top: 14.5%}
+  40% {top: 16%}
+  50% {top: 17.5%}
+  60% {top: 19%}
+  70% {top: 20.5%}
+  80% {top: 22%}
+  90% {top: 21%}
+  100% {top: 20%}
+}
+
+.top-right {
+  position: absolute;
+  top: 20%;
+  right: 60%;
+  font-size: 40px;
+  color: white;
+  animation-name: fadeIn, bounce;
+  animation-duration: 0.7s;
+  font-weight: 700;
+}
+
+#carouselExampleIndicators {
+  height: 70vh;
+}
+
+.d-block {
+  height: 70vh;
 }

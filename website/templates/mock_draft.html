@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% extends 'base.html' %}
 {% load static %}
+{% load extras %}
 {% block content %}
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -14,8 +15,8 @@
     <title></title>
   </head>
   <body>
-    {% for r in rounds %}
     <div class="tables">
+    {% for r in rounds %}
       <div class="player-table">
         <br>
         <h2>Round {{ r.0 }}</h2>
@@ -24,13 +25,15 @@
             <tr>
               <th scope="col">#</th>
               <th scope="col">Name</th>
+              <th scope="col">Current Team</th>
             </tr>
           </thead>
           <tbody>
             {% for p in r.1 %}
             <tr>
               <td>{{ p.0 }}</td>
-              <td><a href="/players/{{ p.0.pk }}">{{ p.1.name }}</a></td>
+              <td><a href="/players/{{ p.1.pk }}">{{ p.1.name }}</a></td>
+              <td>{{ p.1.team.abv }}</td>
             </tr>
             {% endfor %}
           </tbody>

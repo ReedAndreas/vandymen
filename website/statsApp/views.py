@@ -8,9 +8,9 @@ from django.views.generic import DetailView
 # setup dataframe
 df = dfm.get_df(Player.objects.all())
 
-byHR = df.sort_values('hr', ascending = False).iloc[0:10][['name', 'hr']]
-byBA = df.sort_values('ba', ascending = False).iloc[0:10][['name', 'ba']]
-byOPS = df.sort_values('ops', ascending = False).iloc[0:10][['name', 'ops']]
+byHR = df[df['ab'] > 5].sort_values('hr', ascending = False).iloc[0:10][['name', 'hr']]
+byBA = df[df['ab'] > 5].sort_values('ba', ascending = False).iloc[0:10][['name', 'ba']]
+byOPS = df[df['ab'] > 5].sort_values('ops', ascending = False).iloc[0:10][['name', 'ops']]
 
 byHRlist = list(byHR.to_dict('records'))
 byBAlist = list(byBA.to_dict('records'))
