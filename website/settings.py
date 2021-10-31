@@ -52,7 +52,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['eb-django-app-dev.elasticbeanstalk.com']
 
 ROOT_URLCONF = 'website.urls'
 
