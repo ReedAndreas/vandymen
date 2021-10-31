@@ -20,10 +20,6 @@ from statsApp import views
 from statsApp.models import Player, Team
 from statsApp.views import PlayerListView, PlayerDetailView, TeamsListView, TeamDetailView, GameLogDetailView
 
-team_players_dict = {str(t.pk): [] for t in Team.objects.all()}
-for t in Team.objects.all():
-    for p in Player.objects.filter(team=t.pk):
-        team_players_dict[str(t.pk)].append(p)
 
 
 urlpatterns = [
@@ -38,5 +34,5 @@ urlpatterns = [
     path('standings/', views.standings, name = 'standings'),
     path('mock_draft/', views.mock_draft, name = 'mock_draft'),
     path('players/<int:pk>/', PlayerDetailView.as_view(extra_context={'players_page': 'active'}), name='player-detail'),
-    path('teams/<int:pk>/', TeamDetailView.as_view(extra_context={'teams_page': 'active', 'players': team_players_dict}), name='team-detail'),
+    path('teams/<int:pk>/', TeamDetailView.as_view(extra_context={'teams_page': 'active'}), name='team-detail'),
 ]

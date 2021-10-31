@@ -153,6 +153,19 @@ class TeamsListView(ListView):
     model = Team
     ordering = ['name']
 
+    team_players_dict = {str(t.pk): [] for t in Team.objects.all()}
+
+    def get_context_data(self, **kwargs):
+        context = super(TeamsListView,self).get_context_data(**kwargs)
+        team_players_dict = {}
+        for t in Team.objects.all():
+            team_players_dict[str(t.pk)] = []
+            for p in Player.objects.filter(team=t.pk):
+                team_players_dict[str(t.pk)].append(p)
+
+        context['players'] = team_players_dict
+        return context
+
 class PlayerDetailView(DetailView):
     queryset = Player.objects.all()
 
