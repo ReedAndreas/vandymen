@@ -20,10 +20,10 @@ from statsApp import views
 from statsApp.models import Player, Team
 from statsApp.views import PlayerListView, PlayerDetailView, TeamsListView, TeamDetailView, GameLogDetailView
 
-team_players_dict = {}#{str(t.pk): [] for t in Team.objects.all()}
-# for t in Team.objects.all():
-#     for p in Player.objects.filter(team=t.pk):
-#         team_players_dict[str(t.pk)].append(p)
+team_players_dict = {str(t.pk): [] for t in Team.objects.all()}
+for t in Team.objects.all():
+    for p in Player.objects.filter(team=t.pk):
+        team_players_dict[str(t.pk)].append(p)
 
 
 urlpatterns = [
