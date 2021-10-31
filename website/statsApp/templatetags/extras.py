@@ -17,6 +17,16 @@ def get_team_members(pk):
     return list(Player.objects.filter(team = pk))
 
 @register.simple_tag
+def get_gb(top, wins, losses):
+    if wins == '' or losses == '':
+        return ''
+    if float(wins) + float(losses) == 0:
+        return top
+    else:
+        dif = (float(wins) - float(losses))/2
+    return round(top - dif, 1)
+
+@register.simple_tag
 def get_team_abv(val):
     return Team.objects.get(pk=val).abv
 

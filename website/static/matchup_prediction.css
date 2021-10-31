@@ -1,0 +1,14 @@
+.main-content {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.graph-div {
+  width: 400px;
+}
+
+.padded {
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-bottom: 10px;
+}

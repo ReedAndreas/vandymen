@@ -6,7 +6,9 @@
   <meta charset="utf-8">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"><script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script src="https://use.fontawesome.com/8398bc54a5.js"></script>
   <link rel="stylesheet" href="{% static 'base.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src= "{% static 'stats.js' %}"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,7 +25,7 @@
           <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item {{ stats_page }}">
-          <a class="nav-link" href="/#main-content">Stats</a>
+          <a class="nav-link" href="/stats">Stats</a>
         </li>
         <li class="nav-item {{ standings_page }}">
           <a class="nav-link" href="/standings">Standings</a>
@@ -40,9 +42,8 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" href="/mock_draft">Mock Draft</a>
-            <a class="dropdown-item" href="#">Gallery</a>
-            <a class="dropdown-item" href="#">About Us</a>
-            <a class="dropdown-item" href="#">Contact</a>
+            <a class="dropdown-item" href="/matchup_prediction">Matchup Prediction</a>
+            <a class="dropdown-item" href="/FAQ">FAQ</a>
           </div>
         </li>
       </ul>
@@ -59,3 +60,17 @@
 {% block content %}
 
 {% endblock %}
+<div class="footer-dark">
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 item text">
+                        <h3>VandyMen</h3>
+                        <p>We are a student-run intramural wiffle ball league at Vanderbilt University. We strive to build fun and engaging experiences through friendly athletic competition amongst students on campus.</p>
+                    </div>
+                    <div class="col item social"><a target="_blank" href="https://www.instagram.com/vandymen/"><i class="icon ion-social-instagram"></i></a><a target="_blank" href="https://github.com/ReedAndreas"><i class="icon ion-social-github"></i></a></div>
+                </div>
+                <p class="copyright">Website created by <a id="linkedin-link" target="_blank" href="https://www.linkedin.com/in/reed-andreas-b580b9218/">Reed Andreas</a> | VandyMen © 2021</p>
+            </div>
+        </footer>
+    </div>

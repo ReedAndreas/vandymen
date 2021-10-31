@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% load extras %}
+
+{% block content %}
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="{% static 'matchup_prediction.css' %}">
+  <title></title>
+</head>
+<body>
+  <br>
+  <form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_ul }}
+    <div class="padded">
+      <input type="submit" class="btn btn-success" value="Submit">
+    </div>
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+            How does this work?
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            Using an algorithm that encompasses a team's average runs scored, the opposing team's runs allowed,
+            and a measure of a specially calculated D-value (score distribution for that team), the program
+            predicts a score for each team. Then, 1000 games are simulated by taking a random sample from
+            each of two normal distributions with a standard deviation of the leagues current score sd and
+            mean team1 predicted score and team2 predicted score respectively. The percentage of games won
+            by each team is shown on the graph.
+          </div>
+        </div>
+      </div>
+      </div>
+  </form>
+  <div class="main-content">
+    <div class="graph">
+  {{ graph|safe }}
+  </div>
+  </div>
+</body>
+</html>
+{% endblock %}

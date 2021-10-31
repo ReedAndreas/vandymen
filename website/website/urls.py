@@ -18,7 +18,7 @@ from django.urls import path
 from django.conf.urls import include
 from statsApp import views
 from statsApp.models import Player, Team
-from statsApp.views import PlayerListView, PlayerDetailView, TeamsListView, TeamDetailView
+from statsApp.views import PlayerListView, PlayerDetailView, TeamsListView, TeamDetailView, GameLogDetailView
 
 team_players_dict = {str(t.pk): [] for t in Team.objects.all()}
 for t in Team.objects.all():
@@ -30,6 +30,10 @@ urlpatterns = [
     path('', views.landing, name = 'landing'),
     path('players/', PlayerListView.as_view(extra_context={'players_page': 'active'})),
     path('teams/', TeamsListView.as_view(extra_context={'teams_page': 'active'})),
+    path('series/<int:pk>/', GameLogDetailView.as_view(extra_context={})),
+    path('stats/', views.stats, name = 'stats'),
+    path('matchup_prediction/', views.matchup_prediction, name = 'matchup_prediction'),
+    path('FAQ/', views.FAQ, name = 'FAQ'),
     path('admin/', admin.site.urls),
     path('standings/', views.standings, name = 'standings'),
     path('mock_draft/', views.mock_draft, name = 'mock_draft'),

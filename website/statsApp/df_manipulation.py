@@ -43,6 +43,7 @@ def get_erg(players, teams):
 
     simple_players = simple_players.drop(['name', 'ab'], axis = 1)
     df = df.reset_index().drop('index', axis = 1)
+    simple_players.columns = ['aH', 'aHR', 'aW']
     predictions = lr.predict(simple_players)
     df['E_Runs_Generated'] = pd.DataFrame(predictions)
     return df.sort_values('E_Runs_Generated', ascending = False)
