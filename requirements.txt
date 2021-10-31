@@ -22,7 +22,6 @@ joblib==1.1.0
 keyring==9.0
 keyrings.alt==4.1.0
 MarkupSafe==2.0.1
-mkl-fft==1.20.2
 mkl-random==1.2.1
 mkl-service==2.3.0
 numexpr==2.7.3
