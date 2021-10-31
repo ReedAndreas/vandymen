@@ -1,1 +1,1 @@
-web: gunicorn vandymen.wsgi
+web: gunicorn website.wsgi:application --log-file--
