@@ -2,7 +2,7 @@
 
 ## Brief
 This web project was developed for the Vandymen Wiffle Ball League at Vanderbilt University. 
-The website was created using Django and holds stats, standings, prediction capabilities, and more for the league and its players.
+The website was created using Django and holds stats, standings, prediction capabilities, and more, for the league and its players.
 It is currently hosted [here](https://vandymen.herokuapp.com/).
 
 ## Full Description
