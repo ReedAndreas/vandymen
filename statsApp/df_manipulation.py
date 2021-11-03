@@ -45,5 +45,6 @@ def get_erg(players, teams):
     simple_players.columns = ['aH', 'aHR']
     predictions = lr.predict(simple_players)
     df['E_Runs_Generated'] = pd.DataFrame(predictions)
-    df['E_Runs_Generated'] = df.apply(lambda x : x['E_Runs_Generated'] * np.sqrt(x['rbi']), axis = 1)
+    df['E_Runs_Generated'] = df.apply(lambda x : x['E_Runs_Generated'] + np.power(x['rbi'], 1/10), axis = 1)
+
     return df.sort_values('E_Runs_Generated', ascending = False)
