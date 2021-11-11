@@ -254,6 +254,7 @@ def matchup_prediction(request):
                 sd = 2.8
                 team_1_wins = 0
                 num_iters = 1000
+                np.sqrt(team_1_estimate, team_2_estimate)
                 for i in range(num_iters):
                     team_1_random = np.random.normal(team_1_estimate, sd)
                     team_2_random = np.random.normal(team_2_estimate, sd)
